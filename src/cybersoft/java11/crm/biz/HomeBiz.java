@@ -10,6 +10,6 @@ public class HomeBiz {
 	}
 	
 	public boolean checkHealth() {
-		return dao.testConnection();
+		return dao.checkHealth();
 	}
 }
