@@ -2,11 +2,11 @@ package cybersoft.java11.crm.model;
 
 public class Home {
 	/*
-	 * blabla
+	 * This class will be pushed to github repository
 	 */
 	
 	/*
-	 * this line is writed in buoi1 branch
-	 * alo
+	 * This line is writed in buoi1 branch
 	 */
+	
 }
