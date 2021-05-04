@@ -14,6 +14,8 @@ import cybersoft.java11.crm.biz.HomeBiz;
 		"/health"
 })
 public class HomeServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
 	private HomeBiz biz;
 	
 	@Override

@@ -16,6 +16,10 @@ import cybersoft.java11.crm.model.Role;
 		"/roles"
 })
 public class RoleServlet extends HttpServlet {
+
+
+	private static final long serialVersionUID = 1L;
+
 	private RoleBiz biz;
 	
 	@Override
