@@ -13,6 +13,7 @@ public class MySqlConnection {
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Successfully");
 			return DriverManager.getConnection(url, username, password);
 		} catch (ClassNotFoundException e) {
 			// TODO: 

@@ -37,4 +37,10 @@ public class Status {
 		this.description = description;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return ""+ id + " " + name + " " + description;
+	}
+	
 }
