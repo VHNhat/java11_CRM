@@ -8,7 +8,7 @@ public class User {
 	private String fullname;
 	private String address;
 	private String phone;
-	private Role role;
+	private Role	 role;
 	
 	/* constructors */
 	public User(int id, String email, String password, String fullname, String address, String phone) {
@@ -87,5 +87,11 @@ public class User {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "" + id + " " + email + " " + fullname + " " + address + " " + phone;
 	}
 }

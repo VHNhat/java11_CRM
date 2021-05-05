@@ -9,6 +9,7 @@ public class RoleBiz {
 	private RoleDao dao;
 	
 	public RoleBiz() {
+		// TODO Auto-generated constructor stub
 		dao = new RoleDao();
 	}
 	

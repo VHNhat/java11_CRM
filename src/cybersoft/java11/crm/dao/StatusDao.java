@@ -8,33 +8,30 @@ import java.util.LinkedList;
 import java.util.List;
 
 import cybersoft.java11.crm.config.MySqlConnection;
-import cybersoft.java11.crm.model.Role;
+import cybersoft.java11.crm.model.Status;
 
-public class RoleDao {
-
-	public List<Role> findAll() {
-		// TODO Auto-generated method stub
-		List<Role> listRole = new LinkedList<Role>();
-		
+public class StatusDao {
+	public List<Status> findAll(){
+		List<Status> listStatus = new LinkedList<Status>();
+	
 		Connection connection = MySqlConnection.getConnection();
-		
+
 		try {
 			Statement statement = connection.createStatement();
-			String query = "select id, name, description from role";
+			String query = "select id, name, description from status";
 			
 			ResultSet results = statement.executeQuery(query);
 			while(results.next()) {
-				Role newRole = new Role();
-				newRole.setId(results.getInt("id"));
-				newRole.setName(results.getString("name"));
-				newRole.setDescription(results.getString("description"));
-				listRole.add(newRole);
+				Status newStatus = new Status();
+				newStatus.setId(results.getInt("id"));
+				newStatus.setName(results.getString("name"));
+				newStatus.setDescription(results.getString("description"));
+				listStatus.add(newStatus);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return listRole;
+		return listStatus;
 	}
-
 }

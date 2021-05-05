@@ -1,12 +1,14 @@
 package cybersoft.java11.crm.model;
 
+import java.sql.Date;
+
 public class Task {
 	/* properties */
 	private int id;
 	private String name;
 	private String description;
-	private String startDate;
-	private String dueDate;
+	private Date startDate;
+	private Date dueDate;
 	private User assignee;
 	private Project project;
 	private Status status;
@@ -16,14 +18,14 @@ public class Task {
 		id = -1;
 		name = "";
 		description = "";
-		startDate = "";
-		dueDate = "";
+		startDate = null;
+		dueDate = null;
 		assignee = null;
 		project = null;
 		status = null;
 	}
 
-	public Task(int id, String name, String description, String startDate, String dueDate) {
+	public Task(int id, String name, String description, Date startDate, Date dueDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -60,19 +62,19 @@ public class Task {
 		this.description = description;
 	}
 
-	public String getStart_date() {
+	public Date getStart_date() {
 		return startDate;
 	}
 
-	public void setStart_date(String startDate) {
+	public void setStart_date(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getDue_date() {
+	public Date getDue_date() {
 		return dueDate;
 	}
 
-	public void setDue_date(String dueDate) {
+	public void setDue_date(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 

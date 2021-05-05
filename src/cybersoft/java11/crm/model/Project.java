@@ -1,29 +1,31 @@
 package cybersoft.java11.crm.model;
 
+import java.sql.Date;
+
 public class Project {
 	/* properties */
 	private int id;
 	private String name;
 	private String description;
-	private String startDate;
-	private String dueDate;
+	private Date startDate;
+	private Date endDate;
 	private User user;
 	/* constructors */
 	public Project() {
 		id = -1;
 		name = "";
 		description = "";
-		startDate = "";
-		dueDate = "";
+		startDate = null;
+		endDate = null;
 		user = null;
 	}
-	public Project(int id, String name, String description, String startDate, String dueDate) {
+	public Project(int id, String name, String description, Date startDate, Date endDate) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.startDate = startDate;
-		this.dueDate = dueDate;
+		this.endDate = endDate;
 		this.user = null;
 	}
 	/* getters & setters */
@@ -45,17 +47,17 @@ public class Project {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getStart_date() {
+	public Date getStart_date() {
 		return startDate;
 	}
-	public void setStart_date(String startDate) {
+	public void setStart_date(Date startDate) {
 		this.startDate = startDate;
 	}
-	public String getDue_date() {
-		return dueDate;
+	public Date getEnd_date() {
+		return endDate;
 	}
-	public void setDue_date(String dueDate) {
-		this.dueDate = dueDate;
+	public void setEnd_date(Date endDate) {
+		this.endDate = endDate;
 	}
 	public User getUser() {
 		return user;

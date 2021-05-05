@@ -1,29 +1,31 @@
 package cybersoft.java11.crm.model;
 
+import java.sql.Date;
+
 public class ProjectUser {
 	/* properties */
-	private String joinDate;
+	private Date joinDate;
 	private String roleDescription;
 	private Project project;
 	private User user;
 	/* constructors */
-	public ProjectUser(String joinDate, String roleDescription) {
+	public ProjectUser(Date joinDate, String roleDescription) {
 		this.joinDate = joinDate;
 		this.roleDescription = roleDescription;
 		this.project = null;
 		this.user = null;
 	}
 	public ProjectUser() {
-		joinDate = "";
+		joinDate = null;
 		roleDescription = "";
 		project = null;
 		user = null;
 	}
 	/* getters & setters */
-	public String getJoinDate() {
+	public Date getJoinDate() {
 		return joinDate;
 	}
-	public void setJoinDate(String joinDate) {
+	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
 	public String getRoleDescription() {
