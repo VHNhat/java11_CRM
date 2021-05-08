@@ -46,7 +46,7 @@ public class AuthServlet extends HttpServlet {
 			String email = req.getParameter("email");
 			String password = req.getParameter("password");
 			
-			System.out.printf("email: %s, password: %s", email,password);
+			System.out.printf("email: %s, password: %s\n", email,password);
 			
 			User user = biz.login(email, password);
 			
