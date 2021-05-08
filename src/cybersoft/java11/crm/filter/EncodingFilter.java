@@ -14,20 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter(urlPatterns = "/*")
 public class EncodingFilter implements Filter {
 	private int requestSeq = 1;
-	
+
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		// To: set charset encoding for request and response
+		// TODO: set charset encoding for request and response
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
 //		System.out.printf("Access time: %d\n", requestSeq++);
-		
 //		System.out.println("Received request.");
-		chain.doFilter(request, response);
-//		System.out.println("Sent response.");
 		
+		chain.doFilter(request, response);
+		
+//		System.out.println("Sent response.");
 	}
 
 }

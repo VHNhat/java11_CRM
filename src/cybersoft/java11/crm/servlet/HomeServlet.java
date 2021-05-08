@@ -19,8 +19,6 @@ import cybersoft.java11.crm.biz.HomeBiz;
 		"/home"
 })
 public class HomeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
 	private HomeBiz biz;
 	
 	@Override
@@ -33,28 +31,34 @@ public class HomeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO: check database health
+		
+		// create a new cookie: "username" is name of cookie and "tuanphan91" is value
 		Cookie cookie = new Cookie("username", "tuanphan91");
-		cookie.setMaxAge(60*60*24);
+		// set time to live for cookie is 20 seconds
+		cookie.setMaxAge(20);
+		// add cookie to response to send to client
 		resp.addCookie(cookie);
 		
-		System.out.println(Calendar.getInstance().getTime().toString());
 		Date curTime = Calendar.getInstance().getTime();
-		String now = "" + curTime.getHours()
-						+ ":" + curTime.getMinutes()
-						+ ":" + curTime.getSeconds()
-						+ "-" + curTime.getDate()
-						+ "/" + curTime.getMonth()
-						+ "/" + curTime.getYear();
+		String now = "" + curTime.getHours() 
+						+ "." + curTime.getMinutes() 
+						+ "." + curTime.getSeconds()
+						+ "." + curTime.getDate()
+						+ "." + curTime.getMonth()
+						+ "." + curTime.getYear();
+		
 		Cookie anotherCookie = new Cookie("lastAccess", now);
 		anotherCookie.setMaxAge(60*60*24*30);
 		resp.addCookie(anotherCookie);
 		
+		// get current session from request
 		HttpSession currentSession = req.getSession();
 		
 		System.out.println(currentSession.getAttribute("loggedUser"));
-		if (currentSession.getAttribute("loggedUser") == null) {
+		
+		if(currentSession.getAttribute("loggedUser") == null) {
 			// set an attribute to current session
-			currentSession.setAttribute("loggedUser", "tuanphan91");
+			currentSession.setAttribute("loggedUser", "yuuhdt");
 			// set max time to wait for another request from client
 			currentSession.setMaxInactiveInterval(20);
 		}
@@ -68,3 +72,4 @@ public class HomeServlet extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/home/index.jsp").forward(req, resp);
 	}
 }
+

@@ -22,18 +22,18 @@ public class AuthFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
+		// check authentication
 		HttpSession session = req.getSession();
 		String userId = (String)session.getAttribute("userId");
 		
 		if(userId != null) {
-			chain.doFilter(req, resp);
+			chain.doFilter(request, response);
 		} else {
 			if(req.getServletPath().equals("/login") || req.getServletPath().startsWith("/assets/"))
 				chain.doFilter(request, response);
 			else
 				resp.sendRedirect(req.getContextPath() + "/login");
 		}
-		
 	}
-
+	
 }

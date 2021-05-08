@@ -16,4 +16,17 @@ public class RoleBiz {
 	public List<Role> findAll(){
 		return dao.findAll();
 	}
+	
+	public int insert(Role role) {
+		return dao.insert(role);
+	}
+	
+	public int delete(int id) {
+		return dao.delete(id);
+	}
+	
+	public int update(Role role) {
+		return dao.update(role);
+	}
+
 }

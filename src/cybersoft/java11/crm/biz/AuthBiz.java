@@ -14,12 +14,14 @@ public class AuthBiz {
 	
 	public User login(String email, String password) {
 		User user = null;
+		
 		try {
 			user = dao.login(email, password);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return user;
 	}
 }

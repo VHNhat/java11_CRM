@@ -12,10 +12,9 @@ public class AuthDao {
 	public User login(String email, String password) throws SQLException {
 		User user = null;
 		
-		String query = "select id, email, fullname, address, phone, role_id\r\n"
-						+ "from user\r\n"
-						+ "where email = ? and password = ?";
-		
+		String query = "select id, email, fullname, address, phone, role_id\n" + 
+				"from user\n" + 
+				"where email = ? and password = ?";
 		Connection connection = MySqlConnection.getConnection();
 		
 		try {
@@ -26,16 +25,18 @@ public class AuthDao {
 			
 			ResultSet result = statement.executeQuery();
 			
-			while(result.next()){
+			while(result.next()) {
 				user = new User();
+				
 				user.setId(result.getInt("id"));
 				user.setEmail(email);
 				user.setFullname(result.getString("fullname"));
 				user.setAddress(result.getString("address"));
 				user.setPhone(result.getString("phone"));
 			}
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			// TODO: 
 			System.out.println("Error in select query.");
 			e.printStackTrace();
 		} finally {
