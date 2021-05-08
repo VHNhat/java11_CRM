@@ -15,6 +15,7 @@ import cybersoft.java11.crm.model.Project;
 		"/project"
 })
 public class ProjectServlet extends HttpServlet{
+	private static final long serialVersionUID = 1L;
 	private ProjectBiz biz;
 	@Override
 	public void init() throws ServletException {

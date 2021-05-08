@@ -8,7 +8,7 @@ public class MySqlConnection {
 	/* database connection information */
 	private static final String url = "jdbc:mysql://localhost:3306/crm";
 	private static final String username = "root";
-	private static final String password = "hoangduy2001";
+	private static final String password = "1234";
 	
 	public static Connection getConnection() {
 		try {

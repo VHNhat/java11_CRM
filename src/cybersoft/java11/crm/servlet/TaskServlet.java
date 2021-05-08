@@ -15,6 +15,7 @@ import cybersoft.java11.crm.model.Task;
 		"/task"
 })
 public class TaskServlet extends HttpServlet{
+	private static final long serialVersionUID = 1L;
 	private TaskBiz biz;
 	@Override
 	public void init() throws ServletException {

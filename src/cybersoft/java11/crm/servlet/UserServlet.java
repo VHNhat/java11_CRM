@@ -15,6 +15,7 @@ import cybersoft.java11.crm.model.User;
 		"/user"
 })
 public class UserServlet extends HttpServlet{
+	private static final long serialVersionUID = 1L;
 	private UserBiz biz;
 	@Override
 	public void init() throws ServletException {

@@ -29,8 +29,8 @@ public class TaskDao {
 				newTask.setId(results.getInt("id"));
 				newTask.setName(results.getString("name"));
 				newTask.setDescription(results.getString("description"));
-				newTask.setStart_date(results.getDate("start_date"));
-				newTask.setDue_date(results.getDate("due_date"));
+				newTask.setStartDate(results.getDate("start_date"));
+				newTask.setDueDate(results.getDate("due_date"));
 				newTask.setAssignee(results.getObject("assignee", User.class));
 				newTask.setProject(results.getObject("project_id", Project.class));
 				newTask.setStatus(results.getObject("status_id", Status.class));

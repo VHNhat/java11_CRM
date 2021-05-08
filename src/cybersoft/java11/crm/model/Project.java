@@ -15,9 +15,8 @@ public class Project {
 		id = -1;
 		name = "";
 		description = "";
-		startDate = null;
-		endDate = null;
-		user = null;
+		startDate = new Date(-1);
+		endDate = new Date(-1);
 	}
 	public Project(int id, String name, String description, Date startDate, Date endDate) {
 		super();
@@ -26,7 +25,6 @@ public class Project {
 		this.description = description;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.user = null;
 	}
 	/* getters & setters */
 	public int getId() {
@@ -47,16 +45,16 @@ public class Project {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getStart_date() {
+	public Date getStartDate() {
 		return startDate;
 	}
-	public void setStart_date(Date startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEnd_date() {
+	public Date getEndDate() {
 		return endDate;
 	}
-	public void setEnd_date(Date endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 	public User getUser() {

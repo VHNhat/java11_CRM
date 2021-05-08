@@ -26,8 +26,8 @@ public class ProjectDao {
 				newProject.setId(results.getInt("id"));
 				newProject.setName(results.getString("name"));
 				newProject.setDescription(results.getString("description"));
-				newProject.setStart_date(results.getDate("start_date"));
-				newProject.setEnd_date(results.getDate("end_date"));
+				newProject.setStartDate(results.getDate("start_date"));
+				newProject.setEndDate(results.getDate("end_date"));
 				newProject.setUser(results.getObject("create_user_id", User.class));
 				listProject.add(newProject);
 			}

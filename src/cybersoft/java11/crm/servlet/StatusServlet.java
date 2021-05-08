@@ -15,6 +15,7 @@ import cybersoft.java11.crm.model.Status;
 		"/status"
 })
 public class StatusServlet extends HttpServlet{
+	private static final long serialVersionUID = 1L;
 	private StatusBiz biz;
 	@Override
 	public void init() throws ServletException {

@@ -18,11 +18,8 @@ public class Task {
 		id = -1;
 		name = "";
 		description = "";
-		startDate = null;
-		dueDate = null;
-		assignee = null;
-		project = null;
-		status = null;
+		startDate = new Date(-1);
+		dueDate = new Date(-1);
 	}
 
 	public Task(int id, String name, String description, Date startDate, Date dueDate) {
@@ -32,9 +29,6 @@ public class Task {
 		this.description = description;
 		this.startDate = startDate;
 		this.dueDate = dueDate;
-		this.assignee = null;
-		this.project = null;
-		this.status = null;
 	}
 	
 	/* getters & setters */
@@ -62,19 +56,19 @@ public class Task {
 		this.description = description;
 	}
 
-	public Date getStart_date() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStart_date(Date startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getDue_date() {
+	public Date getDueDate() {
 		return dueDate;
 	}
 
-	public void setDue_date(Date dueDate) {
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 
