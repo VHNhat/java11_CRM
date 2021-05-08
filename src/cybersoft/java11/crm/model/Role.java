@@ -39,6 +39,6 @@ public class Role {
 	}
 	
 	public String toString() {
-		return "" + id + " " + name + " " + description + "\n";
+		return "" + id + "-" + name + "-" + description + "\n";
 	}
 }
