@@ -13,12 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import cybersoft.java11.crm.biz.RoleBiz;
 import cybersoft.java11.crm.model.Role;
+import cybersoft.java11.crm.utils.UrlConstant;
 
 @WebServlet(name = "roleServlet", urlPatterns = {
-		"/roles",
-		"/roles/add",
-		"/roles/delete",
-		"/roles/update"
+		UrlConstant.ROLE_DASHBOARD,
+		UrlConstant.ROLE_ADD,
+		UrlConstant.ROLE_DELETE,
+		UrlConstant.ROLE_UPDATE
 })
 public class RoleServlet extends HttpServlet {
 

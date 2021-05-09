@@ -126,7 +126,7 @@
                         </a>
                         <div id="account_menu" class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-item-text dropdown-item-text--lh">
-                                <div><strong><%= session.getAttribute("fullname") %></strong></div>
+                                <div><strong><%=session.getAttribute("fullname") %></strong></div>
                                 <div></div>
                             </div>
                             <div class="dropdown-divider"></div>
