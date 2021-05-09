@@ -26,7 +26,7 @@ public class RoleBiz {
 		return dao.removeRole(id);
 	}
 	
-	public boolean update(int id, int newId, String newName, String newDescription) throws SQLException {
-		return dao.update(id, newId, newName, newDescription);
+	public boolean update(int id, String newName, String newDescription) throws SQLException {
+		return dao.update(id, newName, newDescription);
 	}
 }

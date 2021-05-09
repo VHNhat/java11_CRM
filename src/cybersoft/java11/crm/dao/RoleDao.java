@@ -92,11 +92,11 @@ public class RoleDao {
 		return result;
 	}
 	
-	public boolean update(int id,int newId, String newName, String newDescription) throws SQLException {
+	public boolean update(int id, String newName, String newDescription) throws SQLException {
 		boolean result = false;
 		
 		String query = "update role\r\n"
-				+ "set id = ?, name = ?, description = ?\r\n"
+				+ "set name = ?, description = ?\r\n"
 				+ "where id = ?";
 		
 		Connection connection = MySqlConnection.getConnection();
@@ -104,10 +104,9 @@ public class RoleDao {
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			
-			statement.setInt(1, newId);
-			statement.setString(2, newName);
-			statement.setString(3, newDescription);
-			statement.setInt(4, id);
+			statement.setString(1, newName);
+			statement.setString(2, newDescription);
+			statement.setInt(3, id);
 			
 			statement.execute();
 			result = true;

@@ -91,15 +91,13 @@ public class RoleServlet extends HttpServlet {
 			case "/roles/update":
 				System.out.print("Nhap id muon update: ");
 				int idOld = Integer.parseInt(sc.nextLine());
-				System.out.print("Nhap id moi: ");
-				int idUpdate = Integer.parseInt(sc.nextLine());
 				System.out.print("Nhap name moi: ");
 				String nameUpdate = sc.nextLine();
 				System.out.print("Nhap description moi: ");
 				String descriptionUpdate = sc.nextLine();
 				
 				try {
-					boolean result = biz.update(idOld, idUpdate, nameUpdate, descriptionUpdate);
+					boolean result = biz.update(idOld, nameUpdate, descriptionUpdate);
 					if(result) 
 						System.out.println("Update successfully!");
 					else
