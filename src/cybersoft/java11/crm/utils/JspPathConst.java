@@ -4,7 +4,9 @@ public class JspPathConst {
 	// Home
 	public static final String HOME_DASDBOARD = "/WEB-INF/view/home/index.jsp";
 	// Role
-	public static final String ROLE_DASDBOARD = "/WEB-INF/view/role/index.jsp";
+	public static final String ROLE_DASHBOARD = "/WEB-INF/view/role/index.jsp";
+	public static final String ROLE_ADD = "/WEB-INF/view/role/role-add.jsp";
+	public static final String ROLE_UPDATE = "/WEB-INF/view/role/role-update.jsp";
 	// User
 	public static final String USER_DASDBOARD = "/WEB-INF/view/user/index.jsp";
 	// Task

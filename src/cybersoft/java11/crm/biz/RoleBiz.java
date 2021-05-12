@@ -18,15 +18,15 @@ public class RoleBiz {
 		return dao.findAll();
 	}
 	
-	public boolean addRole(int id, String name, String description) throws SQLException {
-		return dao.addRole(id, name, description);
+	public int addRole(Role role) throws SQLException {
+		return dao.addRole(role);
 	}
 	
 	public boolean removeRole(int id) throws SQLException {
 		return dao.removeRole(id);
 	}
 	
-	public boolean update(int id, String newName, String newDescription) throws SQLException {
-		return dao.update(id, newName, newDescription);
+	public int update(int id, Role role) throws SQLException {
+		return dao.update(id, role);
 	}
 }

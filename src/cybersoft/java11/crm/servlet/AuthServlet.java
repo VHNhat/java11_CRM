@@ -31,7 +31,7 @@ public class AuthServlet extends HttpServlet {
 		String servletPath = req.getServletPath();
 //		System.out.println(servletPath);
 		switch(servletPath) {
-			case "/login":
+			case UrlConstant.AUTH_LOGIN:
 				req.getRequestDispatcher(JspPathConst.AUTH_LOGIN).forward(req, resp);
 				break;
 			case UrlConstant.AUTH_LOGOUT:
@@ -49,7 +49,7 @@ public class AuthServlet extends HttpServlet {
 		String servletPath = req.getServletPath();
 //		System.out.println(servletPath);
 		switch(servletPath) {
-			case "/login":
+			case UrlConstant.AUTH_LOGIN:
 				String email = req.getParameter("email");
 				String password = req.getParameter("password");
 				
