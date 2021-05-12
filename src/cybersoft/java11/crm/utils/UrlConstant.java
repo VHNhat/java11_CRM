@@ -18,6 +18,7 @@ public class UrlConstant {
 	public static final String ROLE_UPDATE = "/roles/update";
 	// USER
 	public static final String USER_DASHBOARD = "/user";
+	public static final String USER_PROFILE = "/user/profile";
 	public static final String USER_ADD = "/user/add";
 	public static final String USER_DELETE = "/user/delete";
 	public static final String USER_UPDATE = "/user/update";

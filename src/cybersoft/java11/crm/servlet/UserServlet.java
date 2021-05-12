@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import cybersoft.java11.crm.biz.UserBiz;
 import cybersoft.java11.crm.model.User;
+import cybersoft.java11.crm.utils.UrlConstant;
 @WebServlet(name = "userServlet", urlPatterns = {
-		"/user"
+		UrlConstant.USER_DASHBOARD,
+		UrlConstant.USER_ADD,
+		UrlConstant.USER_DELETE,
+		UrlConstant.USER_UPDATE
 })
 public class UserServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
