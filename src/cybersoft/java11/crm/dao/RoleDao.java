@@ -160,26 +160,29 @@ public class RoleDao {
 		return result;
 	}
 	
-	public boolean removeRole(int id) throws SQLException {
-		boolean result = false;
-		String query = "delete from role \r\n"
-				+ "where id = ?";
-		
+	public int removeRole(int id) throws SQLException {
+		int result = -1;
 		Connection connection = MySqlConnection.getConnection();
 		
 		try {
+			String query = "delete from role where id = ?";
+			
 			PreparedStatement statement = connection.prepareStatement(query);
 			
 			statement.setInt(1, id);
 			
-			statement.execute();
-			result = true;
+			result = statement.executeUpdate();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error in delete query.");
 			e.printStackTrace();
 		} finally {
-			connection.close();
+			try {
+				connection.close();
+			} catch (SQLException ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+			}
 		}
 		
 		return result;

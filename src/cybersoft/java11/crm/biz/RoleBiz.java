@@ -22,11 +22,15 @@ public class RoleBiz {
 		return dao.addRole(role);
 	}
 	
-	public boolean removeRole(int id) throws SQLException {
+	public int removeRole(int id) throws SQLException{
 		return dao.removeRole(id);
 	}
 	
-	public int update(int id, Role role) throws SQLException {
+	public int update(int id, Role role){
 		return dao.update(id, role);
+	}
+	
+	public Role findById(int id) {
+		return dao.findById(id);
 	}
 }

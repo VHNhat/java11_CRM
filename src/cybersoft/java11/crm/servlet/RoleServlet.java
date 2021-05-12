@@ -56,39 +56,9 @@ public class RoleServlet extends HttpServlet {
 				}
 				break;
 			case UrlConstant.ROLE_ADD:
-				/*System.out.print("Nhap id: ");
-				int idAdd = Integer.parseInt(sc.nextLine());
-				System.out.print("Nhap name: ");
-				String nameAdd = sc.nextLine();
-				System.out.print("Nhap description: ");
-				String descriptionAdd = sc.nextLine();
-				
-				try {
-					boolean result = biz.addRole(idAdd, nameAdd, descriptionAdd);
-					if(result) 
-						System.out.println("Add successfully!");
-					else
-						System.out.println("Add failed!");
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
 				req.getRequestDispatcher(JspPathConst.ROLE_ADD).forward(req, resp);
 				break;
 			case UrlConstant.ROLE_DELETE:
-				/*System.out.print("Nhap id: ");
-				int idDelete = Integer.parseInt(sc.nextLine());
-				
-				try {
-					boolean result = biz.removeRole(idDelete);
-					if(result) 
-						System.out.println("Remove successfully!");
-					else
-						System.out.println("Remove failed!");
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
 				String id = req.getParameter("id");
 				try {
 					biz.removeRole(Integer.parseInt(id));
@@ -102,23 +72,11 @@ public class RoleServlet extends HttpServlet {
 				resp.sendRedirect(req.getContextPath() + UrlConstant.ROLE_DASHBOARD);
 				break;
 			case UrlConstant.ROLE_UPDATE:
-				/*System.out.print("Nhap id muon update: ");
-				int idOld = Integer.parseInt(sc.nextLine());
-				System.out.print("Nhap name moi: ");
-				String nameUpdate = sc.nextLine();
-				System.out.print("Nhap description moi: ");
-				String descriptionUpdate = sc.nextLine();
+				int idUpdate = Integer.parseInt(req.getParameter("id"));
 				
-				try {
-					boolean result = biz.update(idOld, nameUpdate, descriptionUpdate);
-					if(result) 
-						System.out.println("Update successfully!");
-					else
-						System.out.println("Update failed!");
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
+				Role willBeUpdatedRole = biz.findById(idUpdate);
+				
+				req.setAttribute("role", willBeUpdatedRole);
 				
 				req.getRequestDispatcher(JspPathConst.ROLE_UPDATE).forward(req, resp);
 				break;
@@ -161,22 +119,31 @@ public class RoleServlet extends HttpServlet {
 				
 				break;
 			case UrlConstant.ROLE_UPDATE:
-				/*int idUpdate = Integer.parseInt(req.getParameter("id"));
-				if(roleName == null || roleName.equals("")) {
-					req.setAttribute("msg", "Role name can't be emty");
-					req.getRequestDispatcher(JspPathConst.ROLE_ADD).forward(req, resp);
+				String name = req.getParameter("role-name");
+				String description = req.getParameter("role-description");
+				int id = Integer.parseInt(req.getParameter("role-id"));
+				
+				if(name == null || name.equals("")) {
+					req.setAttribute("msg", "Role name can't be empty.");
+					
+					Role needToFixRole = new Role();
+					
+					needToFixRole.setId(id);
+					needToFixRole.setDescription(description);
+					
+					req.setAttribute("role", needToFixRole);
+					
+					req.getRequestDispatcher(JspPathConst.ROLE_UPDATE).forward(req, resp);
 				} else {
-					Role newRole = new Role();
-					newRole.setName(roleName);
-					newRole.setDescription(roleDescription);
-					try {
-						biz.update(idUpdate, newRole);
-						resp.sendRedirect(req.getContextPath() + UrlConstant.ROLE_DASHBOARD);
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}*/
+					Role updateRole = new Role();
+					updateRole.setName(name);
+					updateRole.setDescription(description);
+					
+					biz.update(id, updateRole);
+					
+					resp.sendRedirect(req.getContextPath() + UrlConstant.ROLE_DASHBOARD);
+				}
+				
 				break;
 				
 			default:
