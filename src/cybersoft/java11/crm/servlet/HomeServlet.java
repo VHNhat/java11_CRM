@@ -69,7 +69,7 @@ public class HomeServlet extends HttpServlet {
 			resp.getWriter().append("Connection to database has been made unsuccessfully.");
 		*/
 		
-		req.getRequestDispatcher(JspPathConst.HOME_DASDBOARD).forward(req, resp);
+		req.getRequestDispatcher(JspPathConst.HOME_DASHBOARD).forward(req, resp);
 		
 	}
 }

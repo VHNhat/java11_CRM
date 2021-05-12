@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="cybersoft.java11.crm.utils.UrlConstant" %>
 
 <!-- Header Layout -->
 <div class="mdk-header-layout js-mdk-header-layout">
@@ -140,7 +141,7 @@
                                 Edit account
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<c:url value="" />">Logout</a>
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConstant.AUTH_LOGOUT %>" />">Logout</a>
                         </div>
                     </li>
                 </ul>

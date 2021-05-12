@@ -13,16 +13,15 @@ import cybersoft.java11.crm.model.Role;
 
 public class RoleDao {
 
-	public List<Role> findAll() throws SQLException {
+	public List<Role> findAll() {
 		// TODO Auto-generated method stub
 		List<Role> listRole = new LinkedList<Role>();
 		
 		Connection connection = MySqlConnection.getConnection();
-		
+		String query = "select id, name, description from role";
 		try {
-			Statement statement = connection.createStatement();
-			String query = "select id, name, description from role";
-			
+			PreparedStatement statement = connection.prepareStatement(query);
+		
 			ResultSet results = statement.executeQuery(query);
 			while(results.next()) {
 				Role newRole = new Role();
@@ -34,90 +33,66 @@ public class RoleDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally{
-			connection.close();
 		}
 		return listRole;
 	}
 	
-	public boolean addRole(int id, String name, String description) throws SQLException{
-		boolean result = false;
-		String query = "insert into role(id,name,description)\r\n"
-				+ "values (?, ?, ?)";
+	public int insert(Role role) {
+		// TODO Auto-generated method stub
 		
 		Connection connection = MySqlConnection.getConnection();
+		String query = "insert into role (id, name, description) values (?, ?, ?)";
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			
+			statement.setInt(1, role.getId());
+			statement.setString(2, role.getName());
+			statement.setString(3, role.getDescription());
+			return statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int delete(int id) {
+		// TODO Auto-generated method stub
 		
+		Connection connection = MySqlConnection.getConnection();
+		String query = "delete from role where id = ?";
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			
 			statement.setInt(1, id);
-			statement.setString(2, name);
-			statement.setString(3, description);
+			statement.executeUpdate();
 			
-			statement.execute();
-			result = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error in insert query.");
 			e.printStackTrace();
-		} finally {
-			connection.close();
 		}
-		
-		return result; 
+		return 0;
 	}
 	
-	public boolean removeRole(int id) throws SQLException {
-		boolean result = false;
-		String query = "delete from role \r\n"
-				+ "where id = ?";
+	public int update(Role role) {
+		// TODO Auto-generated method stub
 		
 		Connection connection = MySqlConnection.getConnection();
-		
+		String query = "updaterole name = ?, description =? values where id = ?";
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			
-			statement.setInt(1, id);
 			
-			statement.execute();
-			result = true;
+			statement.setString(1, role.getName());
+			statement.setString(2, role.getDescription());
+			statement.setInt(3, role.getId());
+			return statement.executeUpdate();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error in delete query.");
 			e.printStackTrace();
-		} finally {
-			connection.close();
 		}
-		
-		return result;
-	}
-	
-	public boolean update(int id, String newName, String newDescription) throws SQLException {
-		boolean result = false;
-		
-		String query = "update role\r\n"
-				+ "set name = ?, description = ?\r\n"
-				+ "where id = ?";
-		
-		Connection connection = MySqlConnection.getConnection();
-		
-		try {
-			PreparedStatement statement = connection.prepareStatement(query);
-			
-			statement.setString(1, newName);
-			statement.setString(2, newDescription);
-			statement.setInt(3, id);
-			
-			statement.execute();
-			result = true;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error in update query.");
-			e.printStackTrace();
-		} finally {
-			connection.close();
-		}
-		
-		return result;
+		return 0;
 	}
 }

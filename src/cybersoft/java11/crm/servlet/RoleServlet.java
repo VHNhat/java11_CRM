@@ -1,9 +1,8 @@
 package cybersoft.java11.crm.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.List;
-import java.util.Scanner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,21 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import cybersoft.java11.crm.biz.RoleBiz;
 import cybersoft.java11.crm.model.Role;
+import cybersoft.java11.crm.utils.JspPathConst;
 import cybersoft.java11.crm.utils.UrlConstant;
 
 @WebServlet(name = "roleServlet", urlPatterns = {
 		UrlConstant.ROLE_DASHBOARD,
 		UrlConstant.ROLE_ADD,
-		UrlConstant.ROLE_DELETE,
-		UrlConstant.ROLE_UPDATE
+		UrlConstant.ROLE_UPDATE,
+		UrlConstant.ROLE_DELETE
 })
 public class RoleServlet extends HttpServlet {
-
-
-	private static final long serialVersionUID = 1L;
-
 	private RoleBiz biz;
-	private Scanner sc = new Scanner(System.in);
 	
 	@Override
 	public void init() throws ServletException {
@@ -41,77 +36,32 @@ public class RoleServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String servletPath = req.getServletPath();
-		switch(servletPath) {
-			case "/roles":
-				List<Role> listRole;
-				try {
-					listRole = biz.findAll();
-					
-					for(Role role : listRole) {
-						resp.getWriter().append(role.toString());
-					}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				break;
-			case "/roles/add":
-				System.out.print("Nhap id: ");
-				int idAdd = Integer.parseInt(sc.nextLine());
-				System.out.print("Nhap name: ");
-				String nameAdd = sc.nextLine();
-				System.out.print("Nhap description: ");
-				String descriptionAdd = sc.nextLine();
+		switch (servletPath) {
+			case UrlConstant.ROLE_DASHBOARD:
+				List<Role> listRole = biz.findAll();
 				
-				try {
-					boolean result = biz.addRole(idAdd, nameAdd, descriptionAdd);
-					if(result) 
-						System.out.println("Add successfully!");
-					else
-						System.out.println("Add failed!");
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				break;
-			case "/roles/delete":
-				System.out.print("Nhap id: ");
-				int idDelete = Integer.parseInt(sc.nextLine());
+				req.setAttribute("role", listRole.get(1));
+//				req.setAttribute("roles", listRole);
 				
-				try {
-					boolean result = biz.removeRole(idDelete);
-					if(result) 
-						System.out.println("Remove successfully!");
-					else
-						System.out.println("Remove failed!");
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				req.getRequestDispatcher(JspPathConst.ROLE_DASHBOARD).forward(req, resp);
 				break;
-			case "/roles/update":
-				System.out.print("Nhap id muon update: ");
-				int idOld = Integer.parseInt(sc.nextLine());
-				System.out.print("Nhap name moi: ");
-				String nameUpdate = sc.nextLine();
-				System.out.print("Nhap description moi: ");
-				String descriptionUpdate = sc.nextLine();
-				
-				try {
-					boolean result = biz.update(idOld, nameUpdate, descriptionUpdate);
-					if(result) 
-						System.out.println("Update successfully!");
-					else
-						System.out.println("Update failed!");
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			case UrlConstant.ROLE_ADD:
+				req.getRequestDispatcher(JspPathConst.ROLE_ADD).forward(req, resp);
 				break;
-			default:
+			case UrlConstant.ROLE_UPDATE:
+				req.getRequestDispatcher(JspPathConst.ROLE_UPDATE).forward(req, resp);
 				break;
-			
+			case UrlConstant.ROLE_DELETE:
+				String id = req.getParameter("id");
+				biz.delete(Integer.parseInt(id));
+				resp.sendRedirect(req.getContextPath() + UrlConstant.ROLE_DASHBOARD);
+				break;
+
+		default:
+			break;
 		}
+		
 		
 	}
 }
+
