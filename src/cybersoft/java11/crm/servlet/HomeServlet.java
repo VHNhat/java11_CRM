@@ -13,10 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cybersoft.java11.crm.biz.HomeBiz;
+import cybersoft.java11.crm.utils.JspPathConst;
+import cybersoft.java11.crm.utils.UrlConstant;
 
 @WebServlet(name = "homeServlet", urlPatterns = {
-		"/health",
-		"/home"
+		UrlConstant.HOME,
+		UrlConstant.HEALTH
 })
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,6 +35,7 @@ public class HomeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO: check database health
+		/* Cookies and session demo
 		Cookie cookie = new Cookie("username", "tuanphan91");
 		cookie.setMaxAge(60*60*24);
 		resp.addCookie(cookie);
@@ -64,7 +67,9 @@ public class HomeServlet extends HttpServlet {
 			resp.getWriter().append("Connection to database has been made successfully.");
 		else
 			resp.getWriter().append("Connection to database has been made unsuccessfully.");
+		*/
 		
-		req.getRequestDispatcher("/WEB-INF/home/index.jsp").forward(req, resp);
+		req.getRequestDispatcher(JspPathConst.HOME_DASDBOARD).forward(req, resp);
+		
 	}
 }

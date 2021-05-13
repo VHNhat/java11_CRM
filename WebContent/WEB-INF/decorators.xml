@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir = "/decorators">
+	<decorator name="default_layout" page="default-layout.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	<excludes>
+		<pattern>/login</pattern>
+		<pattern>/logout</pattern>
+	</excludes>
+</decorators>
