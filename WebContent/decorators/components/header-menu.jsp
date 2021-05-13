@@ -1,3 +1,4 @@
+<%@page import="cybersoft.java11.crm.utils.UrlConstant"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -33,7 +34,7 @@
                             User
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%= UrlConstant.USER_DASHBOARD %>"/>">
                                 User List
                             </a>
                             <a class="dropdown-item" href="#">

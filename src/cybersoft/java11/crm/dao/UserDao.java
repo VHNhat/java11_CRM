@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import cybersoft.java11.crm.config.MySqlConnection;
-import cybersoft.java11.crm.model.Role;
 import cybersoft.java11.crm.model.User;
 
 public class UserDao {
@@ -29,12 +28,18 @@ public class UserDao {
 				newUser.setFullname(results.getString("fullname"));
 				newUser.setAddress(results.getString("address"));
 				newUser.setPhone(results.getString("phone"));
-				newUser.setRole(results.getObject("role_id", Role.class));
 				listUser.add(newUser);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return listUser;
 	}
