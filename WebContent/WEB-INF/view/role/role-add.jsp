@@ -31,7 +31,7 @@
 	            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	                <span aria-hidden="true">&times;</span>
 	            </button>
-	            <strong>Danger - </strong> A simple danger alert - check it out!
+	            <strong>Error - </strong> ${msg}
 	        </div>
 		</c:if>
         <div class="row no-gutters">

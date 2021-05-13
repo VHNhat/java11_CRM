@@ -29,7 +29,7 @@
 		        <jsp:include page="/decorators/components/header-menu.jsp"></jsp:include>
 				<!-- END - HEADER-MENU -->
 				
-				<dec:body />
+				<dec:body /> <!--  This is page content -->
 			</div>
 			<!-- END - PAGE CONTENT -->
 		</div>
