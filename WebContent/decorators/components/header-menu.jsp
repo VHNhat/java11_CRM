@@ -37,7 +37,7 @@
                             <a class="dropdown-item" href="<c:url value="<%= UrlConstant.USER_DASHBOARD %>"/>">
                                 User List
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%= UrlConstant.USER_ADD %>" />">
                                 Create User
                             </a>
                         </div>

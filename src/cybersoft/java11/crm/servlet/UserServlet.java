@@ -8,8 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
 import cybersoft.java11.crm.biz.UserBiz;
 import cybersoft.java11.crm.model.Role;
 import cybersoft.java11.crm.model.User;
@@ -103,6 +101,7 @@ public class UserServlet extends HttpServlet{
 					newUser.setRole(newRole);
 					
 					biz.addUser(newUser);
+					
 					resp.sendRedirect(req.getContextPath() + UrlConstant.USER_DASHBOARD);
 				}
 				break;

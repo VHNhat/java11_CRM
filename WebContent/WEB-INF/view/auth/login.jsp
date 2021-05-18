@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="cybersoft.java11.crm.utils.UrlConstant" %>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -48,7 +50,7 @@
             <div class="form-group">
                 <label class="text-label" for="email_2">Email Address:</label>
                 <div class="input-group input-group-merge">
-                    <input name ="email" id="email_2" type="email" required="" class="form-control form-control-prepended" placeholder="nhatvh.work@gmail.com">
+                    <input name ="email" id="email_2" type="email" required="" class="form-control form-control-prepended" placeholder="Enter your email">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <span class="far fa-envelope"></span>
@@ -73,9 +75,17 @@
                     <label class="custom-control-label" for="remember">Remember me</label>
                 </div>
             </div>
+            <c:if test="${msg != null }">
+				<div class="alert alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+		            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		                <span aria-hidden="true">&times;</span>
+		            </button>
+		            <strong>Error - </strong> ${msg}
+		        </div>
+			</c:if>
             <div class="form-group text-center">
                 <button class="btn btn-primary mb-5" type="submit">Login</button><br>
-                <a href="">Forgot password?</a> <br> Don't have an account? <a class="text-body text-underline" href="signup.html">Sign up!</a>
+                <a href="">Forgot password?</a> <br> Don't have an account? <a class="text-body text-underline" href='<c:url value="<%=UrlConstant.AUTH_REGISTER %>" />'>Sign up!</a>
             </div>
         </form>
     </div>

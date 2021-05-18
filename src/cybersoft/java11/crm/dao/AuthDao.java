@@ -44,4 +44,60 @@ public class AuthDao {
 		
 		return user;
 	}
+	public int register(User user) {
+		int result = -1;
+		Connection connection = MySqlConnection.getConnection();
+		
+		try {
+			String query = "insert user(`email`, `password`, `fullname`) values (?, ?, ?)";
+			
+			PreparedStatement statement = connection.prepareStatement(query);
+			
+			statement.setString(1, user.getEmail());
+			statement.setString(2, user.getPassword());
+			statement.setString(3, user.getFullname());
+			
+			result = statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("error in insert query");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+	
+	public boolean checkEmailExisted(User user) {
+		boolean result = true;
+		Connection connection = MySqlConnection.getConnection();
+		
+		String query = "select * from user where email = ?";
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			
+			statement.setString(1, user.getEmail());
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			while(resultSet.next()) {
+				result = false;
+				System.out.println("Email has been used!");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return result;
+	}
 }

@@ -49,11 +49,12 @@ public class AuthServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String servletPath = req.getServletPath();
+		String email, password, fullname;
 //		System.out.println(servletPath);
 		switch(servletPath) {
 			case UrlConstant.AUTH_LOGIN:
-				String email = req.getParameter("email");
-				String password = req.getParameter("password");
+				email = req.getParameter("email");
+				password = req.getParameter("password");
 				
 //				System.out.printf("email: %s, password: %s\n", email,password);
 				
@@ -68,9 +69,34 @@ public class AuthServlet extends HttpServlet {
 					session.setMaxInactiveInterval(3600);
 					resp.sendRedirect(req.getContextPath() + UrlConstant.HOME);
 				} else {
+					req.setAttribute("msg", "Your email or password is not correct");
 					req.getRequestDispatcher(JspPathConst.AUTH_LOGIN).forward(req, resp);
 				}
 				break;
+			case UrlConstant.AUTH_REGISTER:
+				fullname = req.getParameter("fullname");
+				email = req.getParameter("email");
+				password = req.getParameter("password");
+				
+				if(email.equals("") || email == null || password.equals("") || password == null || fullname.equals("") || fullname == null) {
+					req.setAttribute("msg", "name,email and password can not be emty.");
+					req.getRequestDispatcher(JspPathConst.AUTH_REGISTER).forward(req, resp);
+				} else {
+					User newUser = new User();
+					newUser.setFullname(fullname);
+					newUser.setEmail(email);
+					newUser.setPassword(password);
+					
+					if(biz.checkEmailExisted(newUser)) {
+						biz.register(newUser);
+						resp.sendRedirect(req.getContextPath() + UrlConstant.AUTH_LOGIN);
+					}	else {
+						req.setAttribute("msg", "Email has been used!");
+						req.getRequestDispatcher(JspPathConst.AUTH_REGISTER).forward(req, resp);
+					}
+					
+				}
+				
 				
 			default:
 				break;
