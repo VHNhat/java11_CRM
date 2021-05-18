@@ -6,5 +6,6 @@
 	<excludes>
 		<pattern>/login</pattern>
 		<pattern>/logout</pattern>
+		<pattern>/register</pattern>
 	</excludes>
 </decorators>

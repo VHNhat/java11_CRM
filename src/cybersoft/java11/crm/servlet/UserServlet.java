@@ -64,7 +64,7 @@ public class UserServlet extends HttpServlet{
 				resp.sendRedirect(req.getContextPath() + UrlConstant.USER_DASHBOARD);
 				break;
 			case UrlConstant.USER_PROFILE:
-				
+				req.getRequestDispatcher(JspPathConst.USER_PROFILE).forward(req, resp);
 				break;
 			
 			default:

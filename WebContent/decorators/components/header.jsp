@@ -1,3 +1,4 @@
+<%@page import="cybersoft.java11.crm.utils.UrlConstant"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -130,17 +131,17 @@
                                 <div></div>
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item active" href="<c:url value="" />">
+                            <a class="dropdown-item active" href="<c:url value="<%=UrlConstant.USER_DASHBOARD %>" />">
                                 Dashboard
                             </a>
-                            <a class="dropdown-item" href="<c:url value="" />"> 
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConstant.USER_PROFILE %>" />"> 
                                 My profile
                             </a>
-                            <a class="dropdown-item" href="<c:url value="" />">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConstant.USER_UPDATE %>" />?id=<%=session.getAttribute("userId")%> ">
                                 Edit account
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<c:url value="" />">Logout</a>
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConstant.AUTH_LOGOUT %>" />">Logout</a>
                         </div>
                     </li>
                 </ul>

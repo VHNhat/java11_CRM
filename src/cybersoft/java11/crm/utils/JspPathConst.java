@@ -18,5 +18,6 @@ public class JspPathConst {
 	public static final String PROJECT_DASDBOARD = "/WEB-INF/view/project/index.jsp";
 	// Auth
 	public static final String AUTH_LOGIN = "/WEB-INF/view/auth/login.jsp";
+	public static final String AUTH_REGISTER = "/WEB-INF/view/auth/register.jsp";
 
 }

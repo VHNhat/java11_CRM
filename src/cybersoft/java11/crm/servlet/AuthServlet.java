@@ -38,6 +38,8 @@ public class AuthServlet extends HttpServlet {
 				req.getSession().invalidate();
 				req.getRequestDispatcher(JspPathConst.AUTH_LOGIN).forward(req, resp);
 				break;
+			case UrlConstant.AUTH_REGISTER:
+				req.getRequestDispatcher(JspPathConst.AUTH_REGISTER).forward(req, resp);
 			default:
 				break;
 		}
@@ -53,7 +55,7 @@ public class AuthServlet extends HttpServlet {
 				String email = req.getParameter("email");
 				String password = req.getParameter("password");
 				
-				System.out.printf("email: %s, password: %s\n", email,password);
+//				System.out.printf("email: %s, password: %s\n", email,password);
 				
 				User user = biz.login(email, password);
 				
