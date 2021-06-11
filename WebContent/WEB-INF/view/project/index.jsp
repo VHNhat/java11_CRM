@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home</title>
+<title>Project Dashboard</title>
 </head>
 <body>
-	<h1>Home Page</h1>
+	<h1>Project dashboard</h1>
 </body>
 </html>

@@ -18,5 +18,15 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/vohoa/.m2/repository/opensymphony/sitemesh/2.4.2/sitemesh-2.4.2.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="sitemesh-2.4.2.jar"/>
+			<attribute name="maven.groupId" value="opensymphony"/>
+			<attribute name="maven.artifactId" value="sitemesh"/>
+			<attribute name="maven.version" value="2.4.2"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

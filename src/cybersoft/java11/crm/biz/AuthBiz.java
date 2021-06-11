@@ -22,4 +22,11 @@ public class AuthBiz {
 		}
 		return user;
 	}
+	
+	public int register(User newUser) {
+		return dao.register(newUser);
+	}
+	public boolean checkEmailExisted(User user) {
+		return dao.checkEmailExisted(user);
+	}
 }

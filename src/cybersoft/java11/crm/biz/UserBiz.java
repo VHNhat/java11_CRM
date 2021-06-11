@@ -15,4 +15,16 @@ public class UserBiz {
 	public List<User> findAll(){
 		return dao.findAll();
 	}
+	public int addUser(User user) {
+		return dao.addUser(user);
+	}
+	public int updateUser(int id, User user) {
+		return dao.updateUser(id, user);
+	}
+	public User findById(int idUpdate) {
+		return dao.findById(idUpdate);
+	}
+	public int deleteUser(int id) {
+		return dao.deleteUser(id);
+	}
 }

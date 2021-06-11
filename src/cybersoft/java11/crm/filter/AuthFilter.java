@@ -28,7 +28,7 @@ public class AuthFilter implements Filter {
 		if(userId != null) {
 			chain.doFilter(req, resp);
 		} else {
-			if(req.getServletPath().equals("/login") || req.getServletPath().startsWith("/assets/"))
+			if(req.getServletPath().equals("/login") || req.getServletPath().equals("/register") || req.getServletPath().startsWith("/assets/"))
 				chain.doFilter(request, response);
 			else
 				resp.sendRedirect(req.getContextPath() + "/login");
